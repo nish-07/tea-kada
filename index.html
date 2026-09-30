@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Mulberry Tea Shop</title>
+<style>
+:root{color-scheme:light;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{background:#FDF6EE;-webkit-text-size-adjust:100%}
+body{margin:0;background:#FDF6EE;color:#000;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Tamil","Noto Sans Devanagari",Arial,sans-serif;-webkit-tap-highlight-color:transparent}
+button{font-family:inherit;color:#000;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button,button:hover,button:active,button:focus{opacity:1;filter:none;transform:none;box-shadow:none;outline:none}
+svg{display:block;flex:none}
+.ph{max-width:480px;min-height:100vh;min-height:100dvh;margin:0 auto;display:flex;flex-direction:column;background:#FDF6EE}
+.hdr{background:#F4A261;padding:calc(26px + env(safe-area-inset-top,0px)) 20px 28px;text-align:center}
+.shop{font-size:20px;font-weight:500}
+.wel{font-size:20px;font-weight:500;margin-top:18px}
+.nmw{position:relative;margin-top:6px;min-height:46px;display:flex;justify-content:center;align-items:center}
+.nm{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-style:italic;line-height:1.2;text-align:center;max-width:60%;overflow-wrap:anywhere}
+.ni{display:none;font-family:Georgia,"Times New Roman",serif;font-size:24px;font-style:italic;color:#000;-webkit-text-fill-color:#000;caret-color:#000;background:#fff;border:1.5px solid #B8621B;outline:none;padding:4px 12px;border-radius:10px;width:185px;text-align:center}
+.eb,.sb{position:absolute;right:0;top:50%;margin-top:-17px;border-radius:8px;font-size:13px;align-items:center;gap:4px}
+.eb{display:flex;background:rgba(0,0,0,.12);padding:6px 10px}
+.sb{display:none;background:#fff;padding:6px 14px;font-weight:500}
+.bd{flex:1;padding:8px 16px 24px}
+.cs{display:flex;gap:8px;padding:10px 0 16px;overflow-x:auto}
+.c{padding:10px 20px;border-radius:24px;font-size:14px;font-weight:500;white-space:nowrap}
+.c-off{background:#fff;border:1.5px solid #E8D5C0}
+.c-on{background:#F4A261;border:1.5px solid #F4A261}
+.mg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.it{background:#fff;border-radius:16px;padding:16px 12px 14px;text-align:center;border:2px solid transparent}
+.it.sel{border-color:#D4820F;background:#FFF8EE}
+.ii{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.ii-t{background:#FFF0DB;color:#B8621B}
+.ii-s{background:#E8F5E9;color:#2E7D32}
+.ii-j{background:#FCE4EC;color:#C2185B}
+.in{font-size:15px;font-weight:500;margin-bottom:2px}
+.ip{font-size:15px;font-weight:500;color:#B8621B;margin-bottom:12px}
+.ab{width:100%;height:44px;border-radius:10px;font-size:15px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:4px;background:#8FD9A8}
+.qr{display:flex;align-items:center;justify-content:center}
+.qb{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0}
+.qm{background:#F5B5B5}
+.qp{background:#8FD9A8}
+.qv{font-size:24px;font-weight:500;min-width:48px;text-align:center}
+.bt{position:sticky;bottom:0;background:#fff;padding:14px 18px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:center;border-top:1.5px solid #f0e8de}
+.pb{background:#F4A261;padding:16px 28px;border-radius:14px;font-size:19px;font-weight:700;min-width:160px;text-align:center}
+.co{display:none;position:fixed;inset:0;background:rgba(50,30,10,.7);align-items:center;justify-content:center;z-index:10;padding:20px}
+.cc{background:#fff;border-radius:24px;padding:30px 22px 24px;text-align:center;width:100%;max-width:400px;max-height:100%;overflow-y:auto}
+.ck{width:64px;height:64px;border-radius:50%;background:#E8F5E9;color:#2E7D32;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.cn{font-family:Georgia,"Times New Roman",serif;font-size:20px;font-style:italic}
+.cl{margin-top:18px;padding-top:14px;border-top:1.5px solid #f0e8de;text-align:left}
+.cr{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0}
+.cr-n{font-size:15px;font-weight:500}
+.cr-s{font-size:12px;color:#555;margin-top:2px}
+.cr-a{font-size:15px;font-weight:500}
+.ct{display:flex;justify-content:space-between;margin-top:8px;padding-top:12px;border-top:1.5px solid #000}
+.ct span{font-size:17px;font-weight:700}
+.cb{display:block;width:100%;margin-top:20px;background:#F4A261;padding:14px;border-radius:12px;font-size:16px;font-weight:700}
+.cx{display:block;width:100%;margin-top:10px;background:#fff;border:1.5px solid #000;padding:12px;border-radius:12px;font-size:15px;font-weight:500}
+.bye{display:none;position:fixed;inset:0;background:#FDF6EE;z-index:20;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.bye .ck{width:72px;height:72px}
+.bye h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:26px;margin:0 0 8px}
+.bye p{margin:0;font-size:15px;color:#333}
+.bye .demo{margin-top:36px;background:none;font-size:13px;color:#555;text-decoration:underline;padding:8px}
+</style>
+</head>
+<body>
+<div class="ph">
+  <div class="hdr">
+    <div class="shop">Mulberry Tea Shop</div>
+    <div class="wel">WELCOME</div>
+    <div class="nmw">
+      <span class="nm" id="nd">Dosai Raja</span>
+      <input class="ni" id="ni" value="Dosai Raja" aria-label="Your name" maxlength="24" autocomplete="off">
+      <button class="eb" id="eb" aria-label="Edit name"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 6.5l3 3"/></svg> edit</button>
+      <button class="sb" id="svb">done</button>
+    </div>
+  </div>
+  <div class="bd">
+    <div class="cs" id="cs"></div>
+    <div class="mg" id="mg"></div>
+  </div>
+  <div class="bt"><button class="pb" id="pb">Pay</button></div>
+</div>
+
+<div class="co" id="co">
+  <div class="cc">
+    <div class="ck"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
+    <div class="cn" id="cnm"></div>
+    <div class="cl" id="cl"></div>
+    <button class="cb" id="again">order again</button>
+    <button class="cx" id="close">close</button>
+  </div>
+</div>
+
+<div class="bye" id="bye">
+  <div class="ck"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
+  <h1 id="byeName">Thank you!</h1>
+  <p>Payment done. You can close this page now.</p>
+  <button class="demo" id="restart">demo only: start over</button>
+</div>
+
+<script>
+var ICONS={
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ minus:'<path d="M5 12h14"/>',
+ tea:'<path d="M5 9h12v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V9z"/><path d="M17 10h1.5a2 2 0 0 1 0 4H17"/><path d="M8 3v3M12 3v3"/>',
+ coffee:'<path d="M6 7h10v9a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V7z"/><path d="M16 9h1.5a2 2 0 0 1 0 5H16"/><path d="M4 21h14"/>',
+ filter:'<path d="M6 8h12l-1 11H7L6 8z"/><path d="M5 8h14"/><path d="M10 3v2M14 3v2"/>',
+ vada:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/>',
+ samosa:'<path d="M12 4l9 15H3L12 4z"/>',
+ egg:'<path d="M12 3c3.5 0 6 5 6 9a6 6 0 0 1-12 0c0-4 2.5-9 6-9z"/>',
+ sandwich:'<path d="M3 10l9-5 9 5H3z"/><path d="M3 14h18"/><path d="M5 14v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/>',
+ juice:'<path d="M6 7h12l-1.5 13h-9L6 7z"/><path d="M14 7l2-4h2"/>',
+ soda:'<path d="M8 4h8l-1 16H9L8 4z"/><path d="M8.5 9h7"/>',
+ bottle:'<path d="M10 3h4v3l2 3v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3V3z"/>'
+};
+function ico(n,s){return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[n]+'</svg>';}
+
+var nd=document.getElementById("nd"),ni=document.getElementById("ni"),eb=document.getElementById("eb"),svb=document.getElementById("svb");
+var DEFAULT_NAME="Dosai Raja";
+try{var saved=localStorage.getItem("tk_name");if(saved){nd.textContent=saved}}catch(e){}
+eb.onclick=function(){nd.style.display="none";ni.style.display="block";ni.value=nd.textContent;ni.focus();ni.select();eb.style.display="none";svb.style.display="block"};
+svb.onclick=function(){var v=ni.value.trim()||DEFAULT_NAME;nd.textContent=v;nd.style.display="block";ni.style.display="none";eb.style.display="flex";svb.style.display="none";try{localStorage.setItem("tk_name",v)}catch(e){}};
+ni.onkeydown=function(e){if(e.key==="Enter")svb.click()};
+
+var items=[
+ {n:"Tea",p:15,i:"tea",c:"t"},
+ {n:"Coffee",p:20,i:"coffee",c:"t"},
+ {n:"Filter coffee",p:25,i:"filter",c:"t"},
+ {n:"Vada",p:15,i:"vada",c:"s"},
+ {n:"Samosa",p:20,i:"samosa",c:"s"},
+ {n:"Omelette",p:25,i:"egg",c:"s"},
+ {n:"Sandwich",p:40,i:"sandwich",c:"s"},
+ {n:"Fresh juice",p:35,i:"juice",c:"j"},
+ {n:"Lemon soda",p:25,i:"soda",c:"j"},
+ {n:"Cool drinks",p:30,i:"bottle",c:"j"}
+];
+var qty={},ac="a";
+var catMap={a:"All",t:"Tea/Coffee",s:"Snacks",j:"Juice"};
+var csEl=document.getElementById("cs"),mgEl=document.getElementById("mg");
+["a","t","s","j"].forEach(function(k){
+ var b=document.createElement("button");
+ b.className="c "+(k===ac?"c-on":"c-off");
+ b.textContent=catMap[k];
+ b.onclick=function(){ac=k;var all=csEl.children;for(var x=0;x<all.length;x++){all[x].className="c c-off"}b.className="c c-on";rn()};
+ csEl.appendChild(b);
+});
+function rn(){
+ mgEl.innerHTML="";
+ var fl=ac==="a"?items:items.filter(function(x){return x.c===ac});
+ fl.forEach(function(item){
+  var idx=items.indexOf(item),q=qty[idx]||0;
+  var ic=item.c==="t"?"ii-t":item.c==="s"?"ii-s":"ii-j";
+  var d=document.createElement("div");
+  d.className="it"+(q?" sel":"");
+  var qh;
+  if(q===0){qh='<button class="ab" onclick="ai('+idx+')">'+ico("plus",18)+' add</button>'}
+  else{qh='<div class="qr"><button class="qb qm" onclick="si('+idx+')" aria-label="Remove one">'+ico("minus",22)+'</button><span class="qv">'+q+'</span><button class="qb qp" onclick="ai('+idx+')" aria-label="Add one">'+ico("plus",22)+'</button></div>'}
+  d.innerHTML='<div class="ii '+ic+'">'+ico(item.i,26)+'</div><div class="in">'+item.n+'</div><div class="ip">\u20b9'+item.p+'</div>'+qh;
+  mgEl.appendChild(d);
+ });
+}
+window.ai=function(i){qty[i]=(qty[i]||0)+1;rn();ub()};
+window.si=function(i){if(qty[i]>0){qty[i]--;if(qty[i]===0)delete qty[i]}rn();ub()};
+function ub(){
+ var total=0,count=0;
+ Object.keys(qty).forEach(function(k){total+=items[k].p*qty[k];count+=qty[k]});
+ document.getElementById("pb").textContent=count===0?"Pay":"Pay \u20b9"+total;
+}
+document.getElementById("pb").onclick=function(){
+ var keys=Object.keys(qty);
+ if(keys.length===0)return;
+ document.getElementById("cnm").textContent=nd.textContent+", payment done!";
+ var html="",total=0;
+ keys.forEach(function(k){
+  var line=items[k].p*qty[k];total+=line;
+  html+='<div class="cr"><div><div class="cr-n">'+items[k].n+'</div><div class="cr-s">'+qty[k]+' \u00d7 \u20b9'+items[k].p+'</div></div><div class="cr-a">\u20b9'+line+'</div></div>';
+ });
+ html+='<div class="ct"><span>Total</span><span>\u20b9'+total+'</span></div>';
+ document.getElementById("cl").innerHTML=html;
+ document.getElementById("co").style.display="flex";
+};
+function clearOrder(){Object.keys(qty).forEach(function(k){delete qty[k]});rn();ub();document.getElementById("co").style.display="none"}
+document.getElementById("again").onclick=clearOrder;
+document.getElementById("close").onclick=function(){
+ var n=nd.textContent;
+ clearOrder();
+ try{window.close()}catch(e){}
+ document.getElementById("byeName").textContent="Thank you, "+n+"!";
+ document.getElementById("bye").style.display="flex";
+};
+document.getElementById("restart").onclick=function(){document.getElementById("bye").style.display="none";window.scrollTo(0,0)};
+rn();
+</script>
+</body>
+</html>
